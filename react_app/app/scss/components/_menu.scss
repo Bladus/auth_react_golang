@@ -1,0 +1,22 @@
+.menu {
+    width: 300px;
+    background-color: #1e282c;
+    float: left;
+    height: 100%;
+    &_list {
+        color: #ffffff;
+        padding-top: 20px;
+        li {
+            padding: 8px 0px 8px 15px;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: #222d32;
+        }
+        li.active {
+            border-left: 4px solid #3c8dbc;
+            padding: 8px 0px 8px 11px;
+        }
+    }
+    
+}

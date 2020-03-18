@@ -1,0 +1,29 @@
+@import "fonts";
+@import "components/header";
+@import "components/menu";
+@import "components/content";
+@import "components/footer";
+@import "components/login";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    height: 100%;
+    font-family: RobotoLight;
+}
+
+#root {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    display: table-row;
+}

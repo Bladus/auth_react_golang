@@ -1,0 +1,28 @@
+.header {
+    height: 50px;
+    background-color: #3c8dbc;
+    &_title {
+        padding: 12px 0px 0px 15px;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        float: left;
+    }
+    &_user {
+        padding: 15px 15px 0px 15px;
+        float: right;
+        color: #ffffff;
+        font-weight: bold;
+        position: relative;
+    }
+    &_img {
+        position: absolute;
+        left: -20px;
+        top: 12px;
+        img {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+        }
+    }
+}
