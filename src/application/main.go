@@ -22,7 +22,7 @@ var database *db.Database
 var inMemorySession *session.Session
 
 func init() {
-    conf := flag.String("conf", "conf/conf.json", "a string")
+    conf := flag.String("conf", "./conf/conf.json", "a string")
 
     flag.Parse()
 
@@ -40,7 +40,7 @@ func init() {
 
     inMemorySession = session.NewSession()
 
-    d = database.Connect(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s", c.DB.Host, c.DB.Port, c.DB.User, c.DB.Password, c.DB.DBname))
+    d = database.Connect(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", c.DB.Host, c.DB.Port, c.DB.User, c.DB.Password, c.DB.DBname))
 }
 
 func main() {

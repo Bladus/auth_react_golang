@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: ​postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  api:
+    image: rospatent_be:${docker_tag:-latest}
+    build:
+      context: .
+    depends_on:
+      - db
+    restart: on-failure
+
+  front:
+    environment:
+      UPSTREAM_SERVICE: "api:9090"
+    image: rospatent_fe:${docker_tag:-latest}
+    build:
+      context: ./react_app
+    ports:
+      - 9001:81
+    restart: on-failure
+    command: /bin/sh -c "envsubst '$$UPSTREAM_SERVICE' < /rospatent_fe/rospatent_fe.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+volumes:
+  pgdata: {}
