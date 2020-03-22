@@ -12,7 +12,6 @@ const DefaultLayout = ({component: Component, ...rest}) => {
         getUser(dispatch);
     }, []);
     let {user} = state;
-    console.log(state)
     return (
         <Route {...rest} render={matchProps => (
             <Fragment>

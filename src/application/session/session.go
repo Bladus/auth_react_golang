@@ -33,3 +33,7 @@ func (s *Session) Get(sessionId string) string {
     }
     return data.Username
 }
+
+func (s *Session) Delete(sessionId string) {
+    delete(s.data, sessionId)
+}

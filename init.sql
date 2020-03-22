@@ -7,7 +7,7 @@ GRANT ALL PRIVILEGES ON DATABASE front_web TO docker;*/
 
 CREATE TABLE users (
     id serial NOT NULL, 
-    username character(256) NOT NULL, 
+    username character varying(256) NOT NULL, 
     password character varying(60) NOT NULL, 
     is_admin boolean NOT NULL, 
     is_valid boolean NOT NULL, 

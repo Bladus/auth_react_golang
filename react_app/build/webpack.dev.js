@@ -12,10 +12,10 @@ module.exports = merge(common, {
         contentBase: path.join(__dirname, '../dist'),
         compress: true,
         open : true,
-        port: PORT || 9001,
+        port: PORT || 9002,
         proxy: {
             '/api': {
-                target: 'http://localhost:9090',
+                target: 'http://localhost:9091',
                 pathRewrite: { '^/api': '/api' }
             }
         }

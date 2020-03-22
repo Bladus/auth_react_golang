@@ -1,0 +1,14 @@
+{
+    "server": {
+        "Addr" : 9091,
+        "ReadTimeout": 3000,
+        "WriteTimeout": 3000
+    },
+    "db": {
+        "Host" : "localhost",
+        "Port": 5432,
+        "User": "test",
+        "Password": "test",
+        "DBname": "front_web"
+    }
+}

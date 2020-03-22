@@ -25,6 +25,8 @@ func (h *Handler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
         h.Route.User(res, req, h.Session, h.DB, COOKIE_NAME)
     case "/api/login":
         h.Route.Login(res, req, h.Session, h.DB, COOKIE_NAME)
+    case "/api/logout":
+        h.Route.Logout(res, req, h.Session, h.DB, COOKIE_NAME)
     default:
     }
 }

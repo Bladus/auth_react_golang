@@ -22,6 +22,8 @@ services:
     depends_on:
       - db
     restart: on-failure
+    ports:
+      - 9090:9090
 
   front:
     environment:

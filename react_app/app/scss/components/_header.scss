@@ -25,4 +25,9 @@
             border-radius: 50%;
         }
     }
+    &_exit {
+        float: right;
+        margin-left: 50px;
+        cursor: pointer;
+    }
 }
