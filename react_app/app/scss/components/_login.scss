@@ -25,12 +25,19 @@
         border-radius: 5px 5px 0px 0px;
         font-weight: bold;
     }
+    &_error {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: red;
+    }
     form {
         border: 1px solid #7b8a8b;
         border-top: none;
         border-radius: 0px 0px 5px 5px;
-        padding: 10px;
+        padding: 10px 10px 30px 10px;
         font-size: 15px;
+        position: relative;
         label {
             display: inline-block;
             width: 100%;

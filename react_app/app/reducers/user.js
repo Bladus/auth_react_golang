@@ -6,6 +6,6 @@ export const user_struct = {
     data: {}
 }
 
-const user = boundApiReducer(actions.GET_USER, new Object);
+const user = boundApiReducer(actions.GET_USER);
 
 export default user;

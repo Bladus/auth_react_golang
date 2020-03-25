@@ -1,4 +1,4 @@
-'use strict';
+
 
 export const get  = (...args) => request('get',  ...args);
 export const post = (...args) => request('post', ...args);
@@ -19,14 +19,14 @@ async function request(method, actions, dispatch, url, data, settings = null, ..
     }
     let options = {
         method,
-        body: method != 'get' ? JSON.stringify(data) : undefined
+        body: method != 'get' ? JSON.stringify(data || {}) : undefined
     }
     if(settings) {
         options = {...options, ...settings};
     }
     try {
-        let resp = await window.fetch(url, options)
-        let data = await resp.json()
+        let resp = await window.fetch(url, options);
+        let data = await resp.json();
         dispatch({
             type: actions.SUCCESS,
             data,

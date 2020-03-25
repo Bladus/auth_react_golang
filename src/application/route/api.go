@@ -30,18 +30,25 @@ func (r *Route) Login(res http.ResponseWriter, req *http.Request, session *sessi
             password string
         )
 
-        req.ParseForm()
-        for key, _ := range req.Form {
+        //req.ParseForm()
+        //fmt.Printf("test %v\n", req.Body)
+        /*for key, _ := range req.Form {
             err := json.Unmarshal([]byte(key), &l)
             if err != nil {
                 log.Println(err.Error())
             }
+        }*/
+
+        decoder := json.NewDecoder(req.Body)
+        err := decoder.Decode(&l)
+        if err != nil {
+            log.Println(err.Error())
         }
 
-        err := db.QueryRow("SELECT username, password FROM users WHERE username = $1;", l.User).Scan(&username, &password)
+        err = db.QueryRow("SELECT username, password FROM users WHERE username = $1;", l.User).Scan(&username, &password)
         if err != nil {
             log.Printf("SELECT username, password FROM users WHERE username = %s; :: %s\n", l.User, err.Error())
-            res.Write([]byte(`{"ok": 0}`))
+            res.Write([]byte(`{"ok": 0, "error": "Пользователь не существует"}`))
         } else {
             log.Printf("SELECT username, password FROM users WHERE username = %s;", l.User)
 
@@ -49,7 +56,7 @@ func (r *Route) Login(res http.ResponseWriter, req *http.Request, session *sessi
 
             if err != nil {
                 log.Printf("CheckPasswordHash(l.Password, password) :: %s\n", err.Error())
-                res.Write([]byte(`{"ok": 0}`))
+                res.Write([]byte(`{"ok": 0, "error": "Неправильный пароль"}`))
             } else {
                 sessionId := session.Init(l.User)
 

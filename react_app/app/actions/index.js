@@ -8,7 +8,7 @@ export const actions = new ApiActions(
 
 const headers = {
     headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+         'Content-Type': 'application/json'
     }
 
 }

@@ -3,9 +3,11 @@ import { actions } from 'actions';
 
 export const login_struct = {
     pending: null,
-    data: {}
+    data: {
+        ok: 0
+    }
 }
 
-const login = boundApiReducer(actions.POST_AUTH, new Object);
+const login = boundApiReducer(actions.POST_AUTH);
 
 export default login;

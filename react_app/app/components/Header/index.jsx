@@ -13,6 +13,7 @@ const Header = (props) => {
             window.location.href = '/login';
         });
     }
+    console.log(state)
     return (
         <div className="header">
             <div className="header_title" >Роспатент платформа</div>
