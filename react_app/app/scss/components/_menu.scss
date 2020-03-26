@@ -7,16 +7,21 @@
         color: #ffffff;
         padding-top: 20px;
         li {
-            padding: 8px 0px 8px 15px;
-            cursor: pointer;
+            a {
+                color: #ffffff;
+                text-decoration: none;
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                padding: 8px 0px 8px 15px;
+            }
+            a.active {
+                border-left: 4px solid #3c8dbc;
+                padding: 8px 0px 8px 11px;
+            }
         }
         li:hover {
             background-color: #222d32;
         }
-        li.active {
-            border-left: 4px solid #3c8dbc;
-            padding: 8px 0px 8px 11px;
-        }
     }
-    
 }

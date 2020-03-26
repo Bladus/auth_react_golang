@@ -1,0 +1,60 @@
+.search {
+    height: 81px;
+    position: relative;
+    /* &_logo {
+        width: 140px;
+        height: 46px;
+        background: url('../images/sputnik.svg') no-repeat;
+        float: left;
+    } */
+    &_wrapper {
+        height: 46px;
+        //margin-left: 150px;
+    }
+    &_input {
+        height: 44px;
+        margin-right: 110px;
+        border: 1px solid #cccccc;
+        padding-left: 10px;
+        padding-right: 50px;
+        position: relative;
+        background-color: #ffffff;
+    }
+    &_query {
+        margin: 0px;
+        height: 42px;
+        border: 0;
+        outline: none;
+        font-size: 20px;
+        width: 100%;
+    }
+    &_submit {
+        cursor: pointer;
+        position: absolute;
+        height: 44px;
+        width: 40px;
+        top: 1px;
+        right: 111px;
+        background: url('../images/search.png') no-repeat 7px 10px;
+        border: 0;
+    }
+    &_match {
+        height: 35px;
+        font-size: 12px;
+        color: #777777;
+    }
+    &_text {
+        float: right;
+        padding: 10px 12px 10px 0px;
+    }
+    &_attr {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 44px;
+        width: 92px;
+        font-size: 10px;
+        cursor: pointer;
+        line-height: 11px;
+    }
+}

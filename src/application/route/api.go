@@ -29,16 +29,7 @@ func (r *Route) Login(res http.ResponseWriter, req *http.Request, session *sessi
             username string
             password string
         )
-
-        //req.ParseForm()
-        //fmt.Printf("test %v\n", req.Body)
-        /*for key, _ := range req.Form {
-            err := json.Unmarshal([]byte(key), &l)
-            if err != nil {
-                log.Println(err.Error())
-            }
-        }*/
-
+        
         decoder := json.NewDecoder(req.Body)
         err := decoder.Decode(&l)
         if err != nil {
@@ -63,7 +54,7 @@ func (r *Route) Login(res http.ResponseWriter, req *http.Request, session *sessi
                 cookie := &http.Cookie{
                     Name: COOKIE_NAME,
                     Value: sessionId,
-                    Expires: time.Now().Add(5 * time.Minute),
+                    Expires: time.Now().Add(60 * time.Minute),
                 }
                 http.SetCookie(res, cookie)
 

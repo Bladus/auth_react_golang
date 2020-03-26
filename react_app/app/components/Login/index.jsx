@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Store } from 'utils/store';
-import { login } from 'actions';
+import { login, loginReset } from 'actions';
 import serialize from 'form-serialize';
 
 const Login = (props) => {
     let { state, dispatch } = useContext(Store);
     let [data, setData] = useState(null);
     let [flag, setFlag] = useState(0);
+    let [showError, setShowError] = useState(1);
     const form = useRef(null);
     const handlerSubmit = (e) => {
         e.preventDefault();
         let data = serialize(form.current, {hash: true});
         setData(data);
-        setFlag(1)
+        setFlag(1);
     }
     useEffect(() => {
         flag && login(dispatch)(data).then(data => {
@@ -21,7 +22,9 @@ const Login = (props) => {
             }
         });
     }, [data]);
-    console.log(state.login.data.error)
+    const handlerFocus = () => {
+        loginReset(dispatch);
+    }
     return (
         <div className="login">
             <div className="login_wrapper" >
@@ -32,11 +35,11 @@ const Login = (props) => {
                         <form ref={form} onSubmit={handlerSubmit} >
                             <div className="field_input">
                                 <label id="id_username" >Имя пользователя</label>
-                                <input name="user" type="text" id="id_username" placeholder="Имя пользователя" />
+                                <input name="user" type="text" id="id_username" placeholder="Имя пользователя" onClick={handlerFocus} />
                             </div>
                             <div className="field_input">
                                 <label id="id_password" >Пароль</label>
-                                <input name="password" type="password" id="id_password" placeholder="пароль" />
+                                <input name="password" type="password" id="id_password" placeholder="пароль" onClick={handlerFocus} />
                             </div>
                             {state.login.data.error && (<div className="login_error">{state.login.data.error}</div>)}
                             <input className="login_submit" type="submit" value="Войти" />

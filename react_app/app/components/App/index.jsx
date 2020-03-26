@@ -5,6 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from 'components/Header';
 import { Store } from 'utils/store';
 import { getUser } from 'actions';
+import Menu from 'components/Menu';
 
 const DefaultLayout = ({component: Component, ...rest}) => {
     let { state, dispatch } = useContext(Store);
@@ -19,7 +20,12 @@ const DefaultLayout = ({component: Component, ...rest}) => {
                     <Fragment>
                         <div className="wrapper">
                             <Header />
-                                <Component {...matchProps} />
+                            <div className="content">
+                                <Menu />
+                                <div className="content_body">
+                                    <Component {...matchProps} />
+                                </div>
+                            </div>
                         </div>
                         <div className="footer">Footer</div>
                     </Fragment>

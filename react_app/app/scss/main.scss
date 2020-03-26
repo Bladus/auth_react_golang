@@ -1,9 +1,13 @@
 @import "fonts";
+@import "components/index";
 @import "components/header";
 @import "components/menu";
 @import "components/content";
 @import "components/footer";
 @import "components/login";
+@import "components/search";
+@import "components/report";
+
 
 * {
     margin: 0;

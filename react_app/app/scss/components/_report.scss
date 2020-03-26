@@ -1,0 +1,30 @@
+$border_li: #cccccc;
+
+.report {
+    &_items {
+        margin: 0px 0px 10px 0px;
+        list-style: none;
+        padding: 0;
+        li {
+            border: 1px solid $border_li;
+            border-bottom: none;
+            padding: 10px;
+            h4 {
+                padding: 0;
+                margin: 10px 0px 10px 0px;
+                color: #004f9c;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold;
+                display: inline-block;
+            }
+            span {
+                font-size: 14px;
+                color: #444444;
+            }
+        }
+        li:last-of-type {
+            border-bottom: 1px solid $border_li;
+        }
+    }
+}

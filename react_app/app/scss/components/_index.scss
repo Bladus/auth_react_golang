@@ -1,0 +1,9 @@
+.content {
+    &_block_left {
+        float: left;
+        width: 80%;
+    }
+    &_block_right {
+        margin-left: 80%;
+    }
+}

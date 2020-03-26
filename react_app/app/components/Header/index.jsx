@@ -1,19 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import { Store } from 'utils/store';
 import { logout } from 'actions';
-//import { useHistory } from 'react-router-dom';
 
 const Header = (props) => {
-    //let history = useHistory();
     let { state, dispatch } = useContext(Store);
     let {user} = state;
     const handlerLogout = () => {
         logout(dispatch).then(data => {
-            //history.push('/login');
             window.location.href = '/login';
         });
     }
-    console.log(state)
     return (
         <div className="header">
             <div className="header_title" >Роспатент платформа</div>

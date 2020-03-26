@@ -1,17 +1,23 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, Fragment } from 'react';
 import { Store } from 'utils/store';
-import Menu from 'components/Menu';
+
+import Search from 'components/Search';
+import Report from 'components/Report';
 
 const Index = (props) => {
     let { state, dispatch } = useContext(Store);
     return (
-        <div className="content">
-            <Menu />
-            <div className="content_body">
-                jsdnfjnsdjfnjsdnfjsdnfjnsdjfnsjd sdjfnjsdfjsd sdjfnjsdnf sdjfn jsdf jsdfjnsdjfn jdsnjfnsdjfnjsdfjsdn fsdjfnjsdnfjdsnfjnsdf
-                jsdnfjnsdjfnjsdnfjsdnfjnsdjfnsjd sdjfnjsdfjsd sdjfnjsdnf sdjfn jsdf jsdfjnsdjfn jdsnjfnsdjfnjsdfjsdn fsdjfnjsdnfjdsnfjnsdf
+        <Fragment>
+            <Search />
+            <div className="content_block">
+                <div className="content_block_left">
+                    <Report />
+                </div>
+                <div className="content_block_right">
+                    <div></div>
+                </div>
             </div>
-        </div>
+        </Fragment>
     );
 }
 

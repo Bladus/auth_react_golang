@@ -21,6 +21,11 @@ const apiReducer = (type, prepare, extendKey, state, action) => {
             pending: null,
             data: undefined
         };
+    case type.RESET:
+        return {
+            pending: null,
+            data: {}
+        };
     default:
         return state;
     }

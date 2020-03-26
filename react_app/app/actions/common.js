@@ -1,4 +1,4 @@
-
+'use strict';
 
 export const get  = (...args) => request('get',  ...args);
 export const post = (...args) => request('post', ...args);
